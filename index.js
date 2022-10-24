@@ -1,28 +1,53 @@
 // 2. Create the player object. Give it two keys, name and chips, and set their values
 
-let	nDecksinputEl = document.getElementById("ndecksinput-el")
-let	betSizeInputEl = document.getElementById("betsizeinput-el")
-let	cardsLeftEl = document.getElementById("cardsleft-el")
-let	decksLeftEl = document.getElementById("decksleft-el")
-let	handValueEl = document.getElementById("handvalue-el")
-let	runningCountEl = document.getElementById("runningcount-el")
-let	trueCountEl = document.getElementById("truecount-el")
-let	betValueEl = document.getElementById("betvalue-el")
+// First collumn elements
+let	runningCountEl = document.getElementById("runningCount-el")
+let	trueCountEl = document.getElementById("trueCount-el")
+let	currBetValueEl = document.getElementById("currBetValue-el")
+let	lastEntryBetEl = document.getElementById("lastEntryBet-el")
+
+let	nCardsLeftEl = document.getElementById("nCardsLeft-el")
+let	nDecksLeftEl = document.getElementById("nDecksLeft-el")
+
+let	hitChanceEl = document.getElementById("hitChance-el")
+
+// Second collumn elements
+// Inputs
+let	betSizeInputEl = document.getElementById("betSizeInput-el")
+let	nDecksInputEl = document.getElementById("nDecksInput-el")
+
+let	currHandValueEl = document.getElementById("currHandValue-el")
+
+let	recommendedMoveEl = document.getElementById("recommendedMove-el")
+let	recommendedMove2El = document.getElementById("recommendedMove2-el")
+
+
 let	testEl = document.getElementById("test-el")
-let	hitOddEl = document.getElementById("hitodd-el")
 // testEl.textContent = "test"
 
-
-let	nDecks
-let	cardsLeft
-let	allCards = []
-let	nEachCard = [13]
+// First collumn vars
 let	runningCount
 let	trueCount
+let	lastEntryBet = betSizeInputEl.value
+let	betSizeInit = betSizeInputEl.value
+
+let	nDecks
+let	nCardsLeft
+
+let	hitSuccessChance = 100
+
+//Second collumn vars
+let	handValue = 0
+
+
+// let	allCards = []
+let	nEachCard = [13]
 let	betSize
-let	handValue
 let	remainingCardValues = []
 let	totalCurrentCards = 0
+let	nPlayerCards = 0
+let split = ""
+
 
 function initEachCard() {
 	for(let i = 0; i < 13; i++)
@@ -31,7 +56,8 @@ function initEachCard() {
 
 //remainingCardValue[index] == numberofcards with value (index + 2)
 function initDecks() {
-	allCards.push(20 * nDecks, 12 * nDecks, 20 * nDecks)
+	initEachCard()
+	// allCards.push(20 * nDecks, 12 * nDecks, 20 * nDecks)
 
 	for(let i = 0; i < 10; i++) {
 		remainingCardValues[i] = 4 * nDecks
@@ -42,64 +68,69 @@ function initDecks() {
 
 //is hit worth it
 
-
 function updateCards() {
-	nDecks = Math.round(cardsLeft / 52 * 1000) / 1000
-	betSize = betSizeInputEl.value
-	decksLeftEl.textContent = "Number of Decks Left: " + nDecks
-	cardsLeftEl.textContent = "Number of Cards Left: " + cardsLeft
-	shouldHit()
+	nDecks = Math.round(nCardsLeft / 52 * 1000) / 1000
+	nDecksLeftEl.textContent = "Number of Decks Left: " + nDecks
+	nCardsLeftEl.textContent = "Number of Cards Left: " + nCardsLeft
+	shouldSplit()
 	for(let i = 0; i < nEachCard.length; i++)
 	{
 		document.getElementById("nc" + (i + 2)).textContent = nEachCard[i]
-		document.getElementById("odd" + (i + 2)).textContent = (Math.round(nEachCard[i] / cardsLeft * 10000) / 100) + " %"
+		document.getElementById("odd" + (i + 2)).textContent = (Math.round(nEachCard[i] / nCardsLeft * 10000) / 100) + " %"
 	}
-}
-
-function newGame() {
-	enableButtons()
-	newHand()
-	runningCount = 0
-	trueCount = 0
-	runningCountEl.textContent = "Running Count: 0"
-	trueCountEl.textContent = "True Count: 0"
-	enableButtons()
-}
-
-function newHand() {
-	enablePlayerButtons()
-	updatePlayerButtonStatus()
-	handValue = 0
-	handValueEl.textContent = "Hand Value: 0"
 }
 
 function updatePlayerButtonStatus()
 {
 	for(var i = 0; i < nEachCard.length; i++)
-	{
 		if (nEachCard[i] == 0)
 			document.getElementById("pb" + (i + 2)).disabled = true
-	}
 }
 
-function renderGame() {
-	// if (cardsLeftEl % 52 == 0)
-	nDecks = nDecksinputEl.value
-	cardsLeft = nDecks * 52
-	if (nDecks > 0 && betSizeInputEl.value > 0)
+//betSize updates when a cardbutton is pressed
+//lastEntrybet updates when newHand is pressed
+
+function newHand() {
+	enablePlayerButtons()
+	updatePlayerButtonStatus()
+	nPlayerCards = 0
+	lastEntryBet = betSize
+	currBetValueEl.textContent = "Bet: " + betSize
+	lastEntryBetEl.textContent = "Last Round Entry Bet: " + lastEntryBet
+	handValue = 0
+	currHandValueEl.textContent = "Hand Value: 0"
+}
+
+function resetCounts() {
+	recommendedMoveEl.textContent = ""
+	recommendedMove2El.textContent = ""
+	runningCount = 0
+	trueCount = 0
+	runningCountEl.textContent = "Running Count: 0"
+	trueCountEl.textContent = "True Count: 0"
+}
+
+function initGame() {
+	nDecks = nDecksInputEl.value
+	nCardsLeft = nDecks * 52
+	betSize = betSizeInputEl.value
+	betSizeInit = betSizeInputEl.value
+	if (nDecks > 0 && betSize > 0)
 	{
 		testEl.textContent = ""
-		newGame()
-		initEachCard()
-		updateCards()
+		currBetValueEl.textContent = "Bet: " + betSize
+		enableButtons()
+		newHand()
+		resetCounts()
 		initDecks()
+		updateCards()
 	}
 	else
 		testEl.textContent = "Bet Size and Number of Decks must be > 0"
 }
 
 function count(value) {
-	allCards[value]--
+	// allCards[value]--
 	if (value == 0)
 		runningCount++
 	if (value == 2)
@@ -107,10 +138,14 @@ function count(value) {
 	runningCountEl.textContent = "Running Count: " + runningCount
 	trueCount = Math.round(runningCount / nDecks * 1000) / 1000
 	trueCountEl.textContent = "True Count: " + trueCount
+	betSize = Math.round(betSizeInit * 2 * trueCount)
 	if (trueCount < 1)
-		betValueEl.textContent = "Bet: " + betSize
-	else
-		betValueEl.textContent = "Bet: " + Math.round(betSize * 2 * trueCount)
+		currBetValueEl.textContent = "Bet: " + betSize
+	else {
+		lastEntryBetEl.textContent = "Last Round Entry Bet: " + lastEntryBet
+		currBetValueEl.textContent = "Bet: " + betSize
+		shouldSplit()
+	}
 }
 
 function enableButtons() {
@@ -141,6 +176,7 @@ function disablePlayerButtons() {
 }
 
 function getHandValue(card) {
+	nPlayerCards++
 	cardCount(card)
 	if (card < 10)
 		handValue += card
@@ -149,20 +185,20 @@ function getHandValue(card) {
 	else
 		handValue += 10
 	if (handValue < 21)
-	{
-		handValueEl.textContent = "Hand Value: " + handValue
-	}
+		currHandValueEl.textContent = "Hand Value: " + handValue
 	else if (handValue == 21) {
-		handValueEl.textContent = "You have Blackjack! You win :)"
+		currHandValueEl.textContent = "You have Blackjack! You win :)"
 		disablePlayerButtons()
 	}
 	else {
-		handValueEl.textContent = "Hand lost :("
+		currHandValueEl.textContent = "Hand lost :("
 		disablePlayerButtons()
 	}
+	shouldSplit()
 }
 
 function cardCount(card) {
+	shouldSplit()
 	if (nEachCard[card - 2] > 0) {
 		if (card < 7)
 			count(0)
@@ -170,7 +206,7 @@ function cardCount(card) {
 			count(2)
 		else
 			count(1)
-		cardsLeft--;
+		nCardsLeft--;
 		nEachCard[card - 2]--
 		updateCards()
 	}
@@ -180,22 +216,40 @@ function cardCount(card) {
 	}
 }
 
+function shouldSplit() {
+	split = ""
+	if (nPlayerCards == 2 && betSize > 2 * lastEntryBet) {
+		split = "Split and "
+	}
+	shouldHit()
+}
+
 function shouldHit() {
 	let valueLeft = 21 - handValue
-	let sumOdd = 100
+	hitSuccessChance = 100
 	let sum = 0
 	if (valueLeft < 2)
-		sumOdd = 0
+		hitSuccessChance = 0
 	else if (valueLeft > 11)
-		sumOdd = 100
+		hitSuccessChance = 100
 	else {
-		for (let i = 2; i < valueLeft; i++)
+		for (let i = 2; i <= valueLeft; i++)
 			sum += nEachCard[i - 2]
-		sumOdd = Math.round(sum / cardsLeft * 10000) / 100
+		hitSuccessChance = Math.round(sum / nCardsLeft * 10000) / 100
 	}
-	if (sumOdd > 50)
-		hitOddEl.style.background="#00FF0F"
-	else
-		hitOddEl.style.background="red"
-	hitOddEl.textContent = sumOdd + " %"
+	if (hitSuccessChance > 50 && nPlayerCards > 1)
+	{
+		hitChanceEl.style.background="green"
+		recommendedMove2El.textContent = "Recommended Move"
+		recommendedMoveEl.textContent = split + "Hit"
+	}
+	else if (nPlayerCards > 1)
+	{
+		hitChanceEl.style.background="red"
+		recommendedMove2El.textContent = "Recommended Move"
+		recommendedMoveEl.textContent = split + "Stand"
+	}
+	hitChanceEl.textContent = hitSuccessChance + " %"
 }
+
+// // 2. Create the player object. Give it two keys, name and chips, and set their values

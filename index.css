@@ -1,17 +1,21 @@
 body {
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-	background-image: url("images/bg.jpg");
+
+	background-image: url("images/bg.png");
 	background-size: cover;
-	font-weight: bold;
 	color: white;
 	text-align: left;
 	margin: 50px;
 }
 
 h1 {
+	font-family: 'Courier New', monospace;
 	text-align: center;
 	color: whitesmoke;
-	margin-bottom: 25px;
+	outline-color: black;
+	-webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
+	background-color: rgba(0,0,0,0);
+	text-shadow: 2px 2px 5px grey;
 }
 
 #test-el {
@@ -23,60 +27,121 @@ h1 {
 }
 
 input[type="number"] {
-	margin-bottom: auto;
+	width: 185px;
+	margin-top: 0px;
 }
 
 .input {
-	margin: auto;
-	width: fit-content;
-}
-
-.cards {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
 	margin: auto;
 	width: fit-content;
 	text-align: center;
 }
 
-.div-1 {
+#submit {
+	width: 185px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	border: none;
+	border-radius: 2px;
+	margin-top: -40px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.whitebox {
+	margin: auto;
+	width: auto;
+	text-align: center;
+}
+
+#all_inputs {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 400px;
+	border-radius: 25px;
+	color: whitesmoke;
+	background-color: rgba(0,0,0,0.8);
+	text-shadow: 2px 2px 5px grey;
+}
+
+#recommended {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-family: 'Courier New', monospace;
+	text-align: center;
+	font-size: 20px;
+	margin: 0px;
+	margin-left: 37%;
+	margin-right: 37%;
+	color: goldenrod;
+	block-size: fit-content;
+	border-radius: 25px;
+	-webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
+	background-color: rgba(0,0,0,0.8);
+	text-shadow: 2px 2px 5px grey;
+}
+
+.stats {
+	padding: 10px;
+	border-radius: 25px;
+	color: whitesmoke;
+	background-color: rgba(0,0,0,0.8);
+	text-shadow: 2px 2px 5px grey;
 	float: left;
 	margin-right: auto;
 	margin-left: auto;
 }
 
-.div-2 {
+.table {
+	padding: 10px;
+	border-radius: 25px;
+	-webkit-text-fill-color: whitesmoke;
+	background-color: rgba(0,0,0,0.8);
 	float: right;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.cardbuttons {
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
 }
 
 p {
 	font-size: medium;
 }
 
-#submit {
-	width: 190px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-weight: bold;
-	border: none;
-	border-radius: 2px;
-	margin-bottom: 2px;
-	margin-top: 0px;
+.button {
+
+	height:34px;
+	width:24px;
 }
 
 button {
 	color: whitesmoke;
-	width: auto;
 	background: green;
-	padding-top: 5px;
-	padding-bottom: 5px;
 	font-weight: bold;
 	border: none;
 	border-radius: 2px;
-	margin-bottom: 2px;
-	margin-top: 2px;
+
+}
+
+button[name="playerButton"] {
+	height: 50px;
 }
 
 button:disabled {
 	background-color: gray;
+}
+
+span {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
 }
