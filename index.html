@@ -1,0 +1,147 @@
+<html>
+	<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<h1>Blackjack Card Counter</h1>
+		<h2 id="test-el"></h2>
+		<div class="div-1">
+			<p id="runningcount-el">Running Count: 0</p>
+			<p id="truecount-el">True Count: 0</p>
+			<p id="betvalue-el">Bet: </p>
+			<br>
+			<p id="cardsleft-el">Number of Cards Left:</p>
+			<p id="decksleft-el">Number of Decks Left:</p>
+			<br><br>
+			<span>Hit Success Chance: </span><span id="hitodd-el"></span>
+		</div>
+
+		<div class= "div-2">
+			<table>
+				<tr>
+					<th>CARD</th>
+					<td>LEFT</td>
+					<td>ODD</td>
+				</tr>
+				<tr>
+					<th>2</th>
+					<td id = "nc2"></td>
+					<td id = "odd2"></td>
+				</tr>
+				<tr>
+					<th>3</th>
+					<td id = "nc3"></td>
+					<td id = "odd3"></td>
+				</tr>
+				<tr>
+					<th>4</th>
+					<td id = "nc4"></td>
+					<td id = "odd4"></td>
+				</tr>
+				<tr>
+					<th>5</th>
+					<td id = "nc5"></td>
+					<td id = "odd5"></td>
+				</tr>
+				<tr>
+					<th>6</th>
+					<td id = "nc6"></td>
+					<td id = "odd6"></td>
+				</tr>
+				<tr>
+					<th>7</th>
+					<td id = "nc7"></td>
+					<td id = "odd7"></td>
+				</tr>
+				<tr>
+					<th>8</th>
+					<td id = "nc8"></td>
+					<td id = "odd8"></td>
+				</tr>
+				<tr>
+					<th>9</th>
+					<td id = "nc9"></td>
+					<td id = "odd9"></td>
+				</tr>
+				<tr>
+					<th>10</th>
+					<td id = "nc10"></td>
+					<td id = "odd10"></td>
+				</tr>
+				<tr>
+					<th>J</th>
+					<td id = "nc11"></td>
+					<td id = "odd11"></td>
+				</tr>
+				<tr>
+					<th>Q</th>
+					<td id = "nc12"></td>
+					<td id = "odd12"></td>
+				</tr>
+				<tr>
+					<th>K</th>
+					<td id = "nc13"></td>
+					<td id = "odd13"></td>
+				</tr>
+				<tr>
+					<th>A</th>
+					<td id = "nc14"></td>
+					<td id = "odd14"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="input">
+			<input type="number" id="betsizeinput-el" name="betsizeinput-el" placeholder="Smallest Bet Size">
+			<input type="number" id="ndecksinput-el" name="ndecksinput-el" placeholder="Initial Number of Decks">
+			<br><br>
+			<button onclick="renderGame()" id="submit" name="newgamebtn">New Game</button>
+			<button onclick="newHand()" id="submit" name="newhandbtn" disabled>New Hand</button>
+		</div>
+
+		<div class="cards">
+			<h2>My Cards</h2>
+			<p id="handvalue-el">Hand Value: 0</p>
+			<button onclick="getHandValue(2)" class="button" name="playerbutton" id="pb2" disabled>2</button>
+			<button onclick="getHandValue(3)" class="button" name="playerbutton" id="pb3" disabled>3</button>
+			<button onclick="getHandValue(4)" class="button" name="playerbutton" id="pb4" disabled>4</button>
+			<button onclick="getHandValue(5)" class="button" name="playerbutton" id="pb5" disabled>5</button>
+			<button onclick="getHandValue(6)" class="button" name="playerbutton" id="pb6" disabled>6</button>
+			<button onclick="getHandValue(7)" class="button" name="playerbutton" id="pb7" disabled>7</button>
+			<button onclick="getHandValue(8)" class="button" name="playerbutton" id="pb8" disabled>8</button>
+			<button onclick="getHandValue(9)" class="button" name="playerbutton" id="pb9" disabled>9</button>
+			<button onclick="getHandValue(10)" class="button" name="playerbutton" id="pb10" disabled>10</button>
+			<button onclick="getHandValue(11)" class="button" name="playerbutton" id="pb11" disabled>J</button>
+			<button onclick="getHandValue(12)" class="button" name="playerbutton" id="pb12" disabled>Q</button>
+			<button onclick="getHandValue(13)" class="button" name="playerbutton" id="pb13" disabled>K</button>
+			<button onclick="getHandValue(14)" class="button" name="playerbutton" id="pb14" disabled>A</button>
+		</div>
+
+		<div class="cards">
+			<h2>Remaining Cards</h2>
+			<button onclick="cardCount(2)" class="button" name="cardbutton" id="b2" disabled>2</button>
+			<button onclick="cardCount(3)" class="button" name="cardbutton" id="b3" disabled>3</button>
+			<button onclick="cardCount(4)" class="button" name="cardbutton" id="b4" disabled>4</button>
+			<button onclick="cardCount(5)" class="button" name="cardbutton" id="b5" disabled>5</button>
+			<button onclick="cardCount(6)" class="button" name="cardbutton" id="b6" disabled>6</button>
+			<button onclick="cardCount(7)" class="button" name="cardbutton" id="b7" disabled>7</button>
+			<button onclick="cardCount(8)" class="button" name="cardbutton" id="b8" disabled>8</button>
+			<button onclick="cardCount(9)" class="button" name="cardbutton" id="b9" disabled>9</button>
+			<button onclick="cardCount(10)" class="button" name="cardbutton" id="b10" disabled>10</button>
+			<button onclick="cardCount(11)" class="button" name="cardbutton" id="b11" disabled>J</button>
+			<button onclick="cardCount(12)" class="button" name="cardbutton" id="b12" disabled>Q</button>
+			<button onclick="cardCount(13)" class="button" name="cardbutton" id="b13" disabled>K</button>
+			<button onclick="cardCount(14)" class="button" name="cardbutton" id="b14" disabled>A</button>
+		</div>
+
+		<br>
+		<!-- 1. Create a paragraph with an id of "player-el" -->
+		<script src="index.js"></script>
+	</body>
+</html>
+
+
+<!-- MISSING
+
+check if inputs are < 0
+-->
