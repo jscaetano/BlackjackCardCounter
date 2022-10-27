@@ -10,6 +10,7 @@ body {
 h1 {
 	font-family: 'Courier New', monospace;
 	text-align: center;
+	line-height: 5px;
 	color: whitesmoke;
 	outline-color: black;
 	-webkit-text-stroke: 1px #282828;
@@ -52,7 +53,6 @@ input[type="number"] {
 
 .whitebox {
 	margin: auto;
-	width: auto;
 	text-align: center;
 }
 
@@ -63,24 +63,36 @@ input[type="number"] {
 	border-radius: 25px;
 	color: whitesmoke;
 	background-color: rgba(0,0,0,0.8);
+	animation-name: backgroundanim;
+  	animation-duration: 2s;
 	text-shadow: 2px 2px 5px grey;
 }
 
+@keyframes backgroundanim {
+	from {background-color: rgba(0,0,0,0);}
+	to {background-color: rgba(0,0,0,0.8);}
+}
+
 #recommended {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: auto;
+	padding-bottom: auto;
+	text-justify: auto;
 	font-family: 'Courier New', monospace;
 	text-align: center;
 	font-size: 20px;
-	margin: 0px;
-	margin-left: 37%;
-	margin-right: 37%;
+	margin: auto;
+	/* margin: auto;
+	margin-left: 5auto;
+	margin-right: 500px; */
+	width: 400px;
 	color: goldenrod;
-	block-size: fit-content;
+
 	border-radius: 25px;
 	-webkit-text-stroke: 1px #282828;
 	text-shadow: 0px 4px 4px #282828;
 	background-color: rgba(0,0,0,0.8);
+	animation-name: backgroundanim;
+  	animation-duration: 2s;
 	text-shadow: 2px 2px 5px grey;
 }
 
@@ -89,6 +101,8 @@ input[type="number"] {
 	border-radius: 25px;
 	color: whitesmoke;
 	background-color: rgba(0,0,0,0.8);
+	animation-name: backgroundanim;
+  	animation-duration: 2s;
 	text-shadow: 2px 2px 5px grey;
 	float: left;
 	margin-right: auto;
@@ -100,6 +114,8 @@ input[type="number"] {
 	border-radius: 25px;
 	-webkit-text-fill-color: whitesmoke;
 	background-color: rgba(0,0,0,0.8);
+	animation-name: backgroundanim;
+  	animation-duration: 2s;
 	float: right;
 	margin-left: auto;
 	margin-right: auto;

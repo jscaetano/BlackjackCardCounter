@@ -3,144 +3,146 @@
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
-		<div class="whitebox">
-			<h1 id="header">BLACKJACK</h1>
-			<h1 id="header">CARD</h1>
-			<h1 id="header">COUNTER</h1>
-		</div>
-		<h2 id="test-el"></h2>
+		<div class="centerblocks">
+			<div class="whitebox">
+				<h1 id="header">BLACKJACK</h1>
+				<h1 id="header">CARD</h1>
+				<h1 id="header">COUNTER</h1>
+			</div>
+			<h2 id="test-el"></h2>
 
-		<div class="stats">
-			<p id="runningCount-el">Running Count: 0</p>
-			<p id="trueCount-el">True Count: 0</p>
-			<p id="currBetValue-el">Bet: </p>
-			<p id="lastEntryBet-el">Last Round Entry Bet: </p>
-			<br>
-			<p id="nCardsLeft-el">Number of Cards Left:</p>
-			<p id="nDecksLeft-el">Number of Decks Left:</p>
-			<br>
-			<span>Hit Success Chance: </span><span id="hitChance-el"></span>
-		</div>
-		<div class= "table">
-			<table>
-				<tr>
-					<th>CARD</th>
-					<th>LEFT</th>
-					<th>ODD</th>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td id = "nc2"></td>
-					<td id = "odd2"></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td id = "nc3"></td>
-					<td id = "odd3"></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td id = "nc4"></td>
-					<td id = "odd4"></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td id = "nc5"></td>
-					<td id = "odd5"></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td id = "nc6"></td>
-					<td id = "odd6"></td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td id = "nc7"></td>
-					<td id = "odd7"></td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td id = "nc8"></td>
-					<td id = "odd8"></td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td id = "nc9"></td>
-					<td id = "odd9"></td>
-				</tr>
-				<tr>
-					<td>T</td>
-					<td id = "nc10"></td>
-					<td id = "odd10"></td>
-				</tr>
-				<tr>
-					<td>J</td>
-					<td id = "nc11"></td>
-					<td id = "odd11"></td>
-				</tr>
-				<tr>
-					<td>Q</td>
-					<td id = "nc12"></td>
-					<td id = "odd12"></td>
-				</tr>
-				<tr>
-					<td>K</td>
-					<td id = "nc13"></td>
-					<td id = "odd13"></td>
-				</tr>
-				<tr>
-					<td>A</td>
-					<td id = "nc14"></td>
-					<td id = "odd14"></td>
-				</tr>
-			</table>
-		</div>
-
-		<div class="whitebox" id="all_inputs">
-			<div class="input">
-				<input type="number" min="0" id="betSizeInput-el" placeholder="Smallest Bet">
-				<input type="number" min="0" id="nDecksInput-el" placeholder="Number of Decks">
-				<br><br>
-				<button onclick="initGame()" id="submit" name="newgamebtn">New Game</button>
-				<button onclick="newHand()" id="submit" name="newhandbtn" disabled>New Hand</button>
+			<div class="stats">
+				<p id="runningCount-el">Running Count: 0</p>
+				<p id="trueCount-el">True Count: 0</p>
+				<p id="currBetValue-el">Bet: </p>
+				<p id="lastEntryBet-el">Last Round Entry Bet: </p>
+				<br>
+				<p id="nCardsLeft-el">Number of Cards Left:</p>
+				<p id="nDecksLeft-el">Number of Decks Left:</p>
+				<br>
+				<span>Hit Success Chance: </span><span id="hitChance-el"></span>
 			</div>
 
+			<div class= "table">
+				<table>
+					<tr>
+						<th>CARD</th>
+						<th>LEFT</th>
+						<th>ODD</th>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td id = "nc2"></td>
+						<td id = "odd2"></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td id = "nc3"></td>
+						<td id = "odd3"></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td id = "nc4"></td>
+						<td id = "odd4"></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td id = "nc5"></td>
+						<td id = "odd5"></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td id = "nc6"></td>
+						<td id = "odd6"></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td id = "nc7"></td>
+						<td id = "odd7"></td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td id = "nc8"></td>
+						<td id = "odd8"></td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td id = "nc9"></td>
+						<td id = "odd9"></td>
+					</tr>
+					<tr>
+						<td>T</td>
+						<td id = "nc10"></td>
+						<td id = "odd10"></td>
+					</tr>
+					<tr>
+						<td>J</td>
+						<td id = "nc11"></td>
+						<td id = "odd11"></td>
+					</tr>
+					<tr>
+						<td>Q</td>
+						<td id = "nc12"></td>
+						<td id = "odd12"></td>
+					</tr>
+					<tr>
+						<td>K</td>
+						<td id = "nc13"></td>
+						<td id = "odd13"></td>
+					</tr>
+					<tr>
+						<td>A</td>
+						<td id = "nc14"></td>
+						<td id = "odd14"></td>
+					</tr>
+				</table>
+			</div>
 
-			<div class="cards">
-				<h2>My Cards</h2>
-				<div class="cardbuttons">
-					<button onclick="getHandValue(2)" class="button" name="playerbutton" id="pb2" disabled>2</button>
-					<button onclick="getHandValue(3)" class="button" name="playerbutton" id="pb3" disabled>3</button>
-					<button onclick="getHandValue(4)" class="button" name="playerbutton" id="pb4" disabled>4</button>
-					<button onclick="getHandValue(5)" class="button" name="playerbutton" id="pb5" disabled>5</button>
-					<button onclick="getHandValue(6)" class="button" name="playerbutton" id="pb6" disabled>6</button>
-					<button onclick="getHandValue(7)" class="button" name="playerbutton" id="pb7" disabled>7</button>
-					<button onclick="getHandValue(8)" class="button" name="playerbutton" id="pb8" disabled>8</button>
-					<button onclick="getHandValue(9)" class="button" name="playerbutton" id="pb9" disabled>9</button>
-					<button onclick="getHandValue(10)" class="button" name="playerbutton" id="pb10" disabled>T</button>
-					<button onclick="getHandValue(11)" class="button" name="playerbutton" id="pb11" disabled>J</button>
-					<button onclick="getHandValue(12)" class="button" name="playerbutton" id="pb12" disabled>Q</button>
-					<button onclick="getHandValue(13)" class="button" name="playerbutton" id="pb13" disabled>K</button>
-					<button onclick="getHandValue(14)" class="button" name="playerbutton" id="pb14" disabled>A</button>
+			<div class="whitebox" id="all_inputs">
+				<div class="input">
+					<input type="number" min="0" required id="betSizeInput-el" placeholder="Smallest Bet">
+					<input type="number" min="0" required id="nDecksInput-el" placeholder="Number of Decks">
+					<br><br>
+					<button onclick="initGame()" id="submit" name="newgamebtn">New Game</button>
+					<button onclick="newHand()" id="submit" name="newhandbtn" disabled>New Hand</button>
 				</div>
-				<p id="currHandValue-el">Hand Value: 0</p>
-				<h2>Remaining Cards</h2>
-				<div class="cardbuttons">
-					<button onclick="cardCount(2)" class="button" name="cardbutton" id="b2" disabled>2</button>
-					<button onclick="cardCount(3)" class="button" name="cardbutton" id="b3" disabled>3</button>
-					<button onclick="cardCount(4)" class="button" name="cardbutton" id="b4" disabled>4</button>
-					<button onclick="cardCount(5)" class="button" name="cardbutton" id="b5" disabled>5</button>
-					<button onclick="cardCount(6)" class="button" name="cardbutton" id="b6" disabled>6</button>
-					<button onclick="cardCount(7)" class="button" name="cardbutton" id="b7" disabled>7</button>
-					<button onclick="cardCount(8)" class="button" name="cardbutton" id="b8" disabled>8</button>
-					<button onclick="cardCount(9)" class="button" name="cardbutton" id="b9" disabled>9</button>
-					<button onclick="cardCount(10)" class="button" name="cardbutton" id="b10" disabled>T</button>
-					<button onclick="cardCount(11)" class="button" name="cardbutton" id="b11" disabled>J</button>
-					<button onclick="cardCount(12)" class="button" name="cardbutton" id="b12" disabled>Q</button>
-					<button onclick="cardCount(13)" class="button" name="cardbutton" id="b13" disabled>K</button>
-					<button onclick="cardCount(14)" class="button" name="cardbutton" id="b14" disabled>A</button>
+				<div class="cards">
+					<h2>My Cards</h2>
+					<div class="cardbuttons">
+						<button onclick="getHandValue(2)" class="button" name="playerbutton" id="pb2" disabled>2</button>
+						<button onclick="getHandValue(3)" class="button" name="playerbutton" id="pb3" disabled>3</button>
+						<button onclick="getHandValue(4)" class="button" name="playerbutton" id="pb4" disabled>4</button>
+						<button onclick="getHandValue(5)" class="button" name="playerbutton" id="pb5" disabled>5</button>
+						<button onclick="getHandValue(6)" class="button" name="playerbutton" id="pb6" disabled>6</button>
+						<button onclick="getHandValue(7)" class="button" name="playerbutton" id="pb7" disabled>7</button>
+						<button onclick="getHandValue(8)" class="button" name="playerbutton" id="pb8" disabled>8</button>
+						<button onclick="getHandValue(9)" class="button" name="playerbutton" id="pb9" disabled>9</button>
+						<button onclick="getHandValue(10)" class="button" name="playerbutton" id="pb10" disabled>T</button>
+						<button onclick="getHandValue(11)" class="button" name="playerbutton" id="pb11" disabled>J</button>
+						<button onclick="getHandValue(12)" class="button" name="playerbutton" id="pb12" disabled>Q</button>
+						<button onclick="getHandValue(13)" class="button" name="playerbutton" id="pb13" disabled>K</button>
+						<button onclick="getHandValue(14)" class="button" name="playerbutton" id="pb14" disabled>A</button>
+					</div>
+					<p id="currHandValue-el">Hand Value: 0</p>
+					<h2>Remaining Cards</h2>
+					<div class="cardbuttons">
+						<button onclick="cardCount(2)" class="button" name="cardbutton" id="b2" disabled>2</button>
+						<button onclick="cardCount(3)" class="button" name="cardbutton" id="b3" disabled>3</button>
+						<button onclick="cardCount(4)" class="button" name="cardbutton" id="b4" disabled>4</button>
+						<button onclick="cardCount(5)" class="button" name="cardbutton" id="b5" disabled>5</button>
+						<button onclick="cardCount(6)" class="button" name="cardbutton" id="b6" disabled>6</button>
+						<button onclick="cardCount(7)" class="button" name="cardbutton" id="b7" disabled>7</button>
+						<button onclick="cardCount(8)" class="button" name="cardbutton" id="b8" disabled>8</button>
+						<button onclick="cardCount(9)" class="button" name="cardbutton" id="b9" disabled>9</button>
+						<button onclick="cardCount(10)" class="button" name="cardbutton" id="b10" disabled>T</button>
+						<button onclick="cardCount(11)" class="button" name="cardbutton" id="b11" disabled>J</button>
+						<button onclick="cardCount(12)" class="button" name="cardbutton" id="b12" disabled>Q</button>
+						<button onclick="cardCount(13)" class="button" name="cardbutton" id="b13" disabled>K</button>
+						<button onclick="cardCount(14)" class="button" name="cardbutton" id="b14" disabled>A</button>
+					</div>
 				</div>
 			</div>
+
 		</div>
 		<br><br><br>
 		<div id="recommended">
